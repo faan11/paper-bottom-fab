@@ -1,0 +1,82 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-fab/paper-fab.html">
+<!-- jquery cdn -->
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+
+<!--
+### paper-box-file
+`<paper-box-file>` is a material design box.
+    <paper-box-file ></paper-box-file>
+
+@demo demo/index.html
+-->
+
+
+<dom-module id="paper-fab-bottom">
+  <template>
+    <custom-style>
+    </custom-style>
+    <style>
+      :host {}
+
+      paper-fab {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        text-align: center;
+        background-color: #46deb7;
+      }
+
+      @media only screen and (min-width: 768px) {
+        paper-fab {
+          right: 40px;
+          bottom: 40px;
+        }
+      }
+
+
+    </style>
+
+    <paper-fab id="paperFab" mini="{{_miniMobile}}" icon="{{icon}}"></paper-fab>
+
+  </template>
+  <script>
+    Polymer({
+
+      is: 'paper-fab-bottom',
+
+      properties: {
+        icon: {
+          type: String,
+          notify: true,
+          value: "check"
+        },
+        _miniMobile: {
+          type: Boolean,
+          notify: true,
+          value: false
+        }
+
+      },
+
+      attached: function() {
+        $(window).resize(function() {
+          if ($(window).width() > 768) {
+            me._miniMobile = false;
+          } else {
+            me._miniMobile = true;
+          }
+        });
+
+        if ($(window).width() > 768) {
+          me._miniMobile = false;
+        } else {
+          me._miniMobile = true;
+        }
+      }
+
+    });
+  </script>
+
+</dom-module>

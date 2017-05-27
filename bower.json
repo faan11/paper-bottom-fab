@@ -1,0 +1,19 @@
+{
+  "name": "paper-fab-bottom",
+  "version": "1.0.0",
+  "description": "A paper-fab in the bottom of the page (Polymer 1.x)",
+  "authors": [
+    "Faan11"
+  ],
+  "main": "paper-box-image.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer",
+    "paper-fab": "PolymerElements/paper-fab"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers",
+    "web-component-tester": "",
+    "webcomponentsjs": "webcomponents/webcomponentsjs"
+  }
+}
