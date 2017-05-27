@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-fab/paper-fab.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 
@@ -37,8 +38,9 @@
 
 
     </style>
-
-    <paper-fab id="paperFab" mini="{{_miniMobile}}" icon="{{icon}}"></paper-fab>
+    <template is="dom-if" if="{{!hidden}}" restamp="true">
+      <paper-fab id="paperFab" mini="{{_miniMobile}}" icon="{{icon}}"></paper-fab>
+    </template>
 
   </template>
   <script>
@@ -47,6 +49,11 @@
       is: 'paper-fab-bottom',
 
       properties: {
+        hidden: {
+          type: Boolean,
+          notify: true,
+          value: false
+        },
         icon: {
           type: String,
           notify: true,
@@ -55,12 +62,12 @@
         _miniMobile: {
           type: Boolean,
           notify: true,
-          value: false
+          value: true
         }
 
       },
-
       attached: function() {
+        var me = this;
         $(window).resize(function() {
           if ($(window).width() > 768) {
             me._miniMobile = false;
