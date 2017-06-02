@@ -63,24 +63,20 @@
           type: Boolean,
           notify: true,
           value: true
+        },
+        miniWidth: {
+          type: Number,
+          notify: true,
+          value: 350
         }
 
       },
       attached: function() {
         var me = this;
         $(window).resize(function() {
-          if ($(window).width() > 768) {
-            me._miniMobile = false;
-          } else {
-            me._miniMobile = true;
-          }
+          me._miniMobile = ($(window).width() <= this.miniWidth);
         });
-
-        if ($(window).width() > 768) {
-          me._miniMobile = false;
-        } else {
-          me._miniMobile = true;
-        }
+        me._miniMobile = ($(window).width() <= this.miniWidth);
       }
 
     });
